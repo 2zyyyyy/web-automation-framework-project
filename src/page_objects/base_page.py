@@ -1,5 +1,5 @@
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import TimeoutException, NoSuchElementException
 from src.common.logger import logger
 from src.common.config import Config
@@ -28,7 +28,7 @@ class BasePage:
         """查找单个元素，带显式等待"""
         try:
             element = WebDriverWait(self.driver, self.timeout).until(
-                EC.presence_of_element_located(locator)
+                ec.presence_of_element_located(locator)
             )
             logger.info(f"找到元素: {locator}")
             return element
@@ -47,7 +47,7 @@ class BasePage:
         """查找多个元素，带显式等待"""
         try:
             elements = WebDriverWait(self.driver, self.timeout).until(
-                EC.presence_of_all_elements_located(locator)
+                ec.presence_of_all_elements_located(locator)
             )
             logger.info(f"找到 {len(elements)} 个元素: {locator}")
             return elements

@@ -15,7 +15,7 @@ class LoginPage(BasePage):
         super().__init__(driver)
         self.page_url = f"{self.base_url}/login"
     
-    def open(self):
+    def open(self, url=None):
         """打开登录页面"""
         super().open(self.page_url)
     
